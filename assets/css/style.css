@@ -21,12 +21,12 @@ button {
   padding: 0 5px;
   border-radius: 8px;
   position: absolute;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .play {
   place-self: center;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .again, .restart {

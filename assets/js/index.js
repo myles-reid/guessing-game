@@ -26,7 +26,7 @@ function toggleClass(element, text) {
 
 const playAgain = select('.again');
 const restart = select('.restart');
-const start = select('.start');
+const start = select('.play');
 const randomNum = select('.front-face');
 const remainingGuesses = select('.guess-count');
 const input = select('.guess');
@@ -36,7 +36,7 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-remainingGuesses.innerText = 5;
+
 
 function setRemainingGuesses() {
   let remainingGuess = parseInt(remainingGuesses.innerText);
@@ -47,13 +47,13 @@ function setRemainingGuesses() {
 }
 
 function setRandomNumber() {
-  return randomNum.innerText = setRandomNumber(1, 50);
+  return randomNum.innerText = getRandomNumber(1, 50);
 }
 
 function checkGuess() {
   let currentGuess = parseInt(input.value);
   let numToGuess = parseInt(randomNum.innerText);
-
+  console.log('here');
   if (currentGuess > numToGuess) output.innerText = 'My number is Lower than that!';
   if (currentGuess < numToGuess) output.innerText = 'My number is higher than that!';
   if (currentGuess === numToGuess) output.innerText = 'You did it! Wahoo!';
@@ -65,6 +65,16 @@ function verifyInput(event) {
  }
 }
 
+listen('click', start, () => {
+  remainingGuesses.innerText = 5;
+  setRandomNumber();
+});
+
 listen('keydown', input, (event) => {
   verifyInput(event);
+  if (event.key === 'Enter') {
+    checkGuess();
+    setRemainingGuesses();
+    input.value = '';
+  }
 });
