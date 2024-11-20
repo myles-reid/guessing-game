@@ -9,24 +9,26 @@ html {
 body {
   display: grid;
   background-color: purple;
+  overflow: hidden;
 }
 
 button {
   height: 50px;
-  width: 150px;
+  width: 175px;
   background-color: blue;
   font-size: 24px;
   font-weight: 800;
   color: white;
-  padding: 0 5px;
+  padding: 0 10px;
   border-radius: 8px;
   position: absolute;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .play {
   place-self: center;
-  /* visibility: hidden; */
+  visibility: visible;
+  position: relative;
 }
 
 .again, .restart {
@@ -45,10 +47,12 @@ button {
 .panel {
   position: absolute;
   place-self: center;
+  display: grid;
+  place-items: center;
   background-color: rgba(255, 166, 0, 0.267);
   height: 80svh;
   width: 400px;
-  visibility:hidden;
+  /* visibility:hidden; */
 }
 
 .number {
@@ -60,8 +64,8 @@ button {
   place-items: center;
   position: relative;
   transform-style: preserve-3d;
-  transform: scale(1);
   transition: transform 0.5s ease-in-out;
+  opacity: 0;
 }
 
 .back-face,
@@ -90,6 +94,7 @@ button {
   background-color:aqua;
   display: grid;
   place-items: center;
+  opacity: 0;
 }
 
 .guess {
@@ -99,6 +104,7 @@ button {
   text-align: center;
   font-size: 75px;
   font-weight: 700;
+  opacity: 0;
 }
 
 .output {
@@ -109,5 +115,6 @@ button {
   font-weight: 500;
   display: grid;
   place-items: center;
+  opacity: 0;
 }
 
