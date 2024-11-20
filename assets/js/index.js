@@ -39,10 +39,10 @@ function getRandomNumber(min, max) {
 remainingGuesses.innerText = 5;
 
 function setRemainingGuesses() {
-  let currentGuess = parseInt(remainingGuesses.innerText);
-  if (currentGuess > 0) {
-    currentGuess -= 1;
-    remainingGuesses.innerText = currentGuess
+  let remainingGuess = parseInt(remainingGuesses.innerText);
+  if (remainingGuess > 0) {
+    remainingGuess -= 1;
+    remainingGuesses.innerText = remainingGuess
   }
 }
 
@@ -50,3 +50,21 @@ function setRandomNumber() {
   return randomNum.innerText = setRandomNumber(1, 50);
 }
 
+function checkGuess() {
+  let currentGuess = parseInt(input.value);
+  let numToGuess = parseInt(randomNum.innerText);
+
+  if (currentGuess > numToGuess) output.innerText = 'My number is Lower than that!';
+  if (currentGuess < numToGuess) output.innerText = 'My number is higher than that!';
+  if (currentGuess === numToGuess) output.innerText = 'You did it! Wahoo!';
+}
+
+function verifyInput(event) {
+ if(isNaN(event.key) && event.key !== 'Backspace') {
+  event.preventDefault();
+ }
+}
+
+listen('keydown', input, (event) => {
+  verifyInput(event);
+});
