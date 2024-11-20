@@ -7,6 +7,102 @@ html {
 }
 
 body {
-  background-color: var(--app-color-dark-bg);
+  display: grid;
+  background-color: purple;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  background-color: blue;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  padding: 0 5px;
+  border-radius: 8px;
+  position: absolute;
+  visibility: hidden;
+}
+
+.play {
+  place-self: center;
+  visibility: hidden;
+}
+
+.again, .restart {
+  top: 50px;
+  right: 100px;
+}
+
+.wrapper {
+  height: 80svh;
+  place-self: center;
+  display: grid;
+  place-items: center;
+  /* visibility: hidden; */
+}
+
+.panel {
+  position: absolute;
+  place-self: center;
+  background-color: rgba(255, 166, 0, 0.267);
+  height: 80svh;
+  width: 400px;
+  visibility:hidden;
+}
+
+.number {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.back-face,
+.front-face {
+  position: absolute;
+  backface-visibility: hidden;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.guesses {
+  height: 60px;
+  width: 200px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color:aqua;
+  display: grid;
+  place-items: center;
+}
+
+.guess {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 75px;
+  font-weight: 700;
+}
+
+.output {
+  height: 40px;
+  width: 300px;
+  background-color: #0000003a;
+  font-size: 20px;
+  font-weight: 500;
+  display: grid;
+  place-items: center;
 }
 
