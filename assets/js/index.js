@@ -24,6 +24,11 @@ function toggleClass(element, text) {
   return element.classList.toggle(text);
 }
 
+function toggleVisibility(element, status) {
+  return element.style.visibility = status;
+}
+
+
 const playAgain = select('.again');
 const restart = select('.restart');
 const start = select('.play');
@@ -31,12 +36,20 @@ const randomNum = select('.front-face');
 const remainingGuesses = select('.guess-count');
 const input = select('.guess');
 const output = select('.output');
+const numberTile = select('.number');
+const game = select('.wrapper');
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
+function startGame() {
+  remainingGuesses.innerText = 5;
+  toggleVisibility(start, 'hidden');
+  toggleVisibility(restart, 'visible');
+  toggleVisibility(game, 'visible');
+  setRandomNumber()
+}
 
 function setRemainingGuesses() {
   let remainingGuess = parseInt(remainingGuesses.innerText);
@@ -65,9 +78,18 @@ function verifyInput(event) {
  }
 }
 
+function checkEndGame(){
+  if (parseInt(remainingGuesses.innerText) === 0 || input.value === randomNum.innerText){
+    endGameState();
+  }
+}
+
+function endGameState() {
+  addClass(numberTile, 'flip');
+}
+
 listen('click', start, () => {
-  remainingGuesses.innerText = 5;
-  setRandomNumber();
+  startGame();
 });
 
 listen('keydown', input, (event) => {
@@ -75,6 +97,7 @@ listen('keydown', input, (event) => {
   if (event.key === 'Enter') {
     checkGuess();
     setRemainingGuesses();
+    checkEndGame();
     input.value = '';
   }
 });
