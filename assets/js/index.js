@@ -102,6 +102,7 @@ function restartGame() {
   if (game.classList.contains('restart')) removeClass(game, 'restart');
   setTimeout(() => {addClass(game, 'restart')}, 1);
   removeClass(numberTile, 'flip');
+  numberTile.style.opacity = '100%'
   remainingGuesses.innerText = 5;
   setTimeout(setRandomNumber, 1000);
   output.innerText = 'Guess a number!';
@@ -110,9 +111,9 @@ function restartGame() {
 }
 
 function endGameState() {
-  numberTile.opacity = 100;
   removeClass(numberTile, 'in-down');
-  addClass(numberTile, 'flip');
+  numberTile.style.opacity = '100%';
+  setTimeout(() => {addClass(numberTile, 'flip')}, 1) ;
 }
 
 listen('click', start, startGame);

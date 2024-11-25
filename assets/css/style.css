@@ -8,7 +8,7 @@ html {
 
 body {
   display: grid;
-  background-color: purple;
+  background-color: #cc5500;
   overflow: hidden;
 }
 
@@ -49,16 +49,18 @@ button {
   place-self: center;
   display: grid;
   place-items: center;
-  background-color: rgba(255, 166, 0, 0.267);
+  background-color: #a54500;
+  color: white;
   height: 80svh;
   width: 400px;
-  /* visibility:hidden; */
+  box-shadow: 0 0 1px 1px rgb(0 0 0 / 25%);
+  border-radius: 6px;
 }
 
 .number {
   height: 100px;
   width: 100px;
-  background-color: green;
+  background-color: #00a545;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -83,7 +85,9 @@ button {
 }
 
 .flip {
+  opacity: 100%;
   transform: rotateY(180deg);
+
 }
 
 .guesses {
@@ -91,7 +95,9 @@ button {
   width: 275px;
   font-size: 24px;
   font-weight: 500;
-  background-color:aqua;
+  color: #fff;
+  background-color: rgb(0 0 0 / 25%);
+  border-radius: 8px;
   display: grid;
   place-items: center;
   opacity: 0;
@@ -109,10 +115,12 @@ button {
 
 .output {
   height: 40px;
-  width: 300px;
+  width: 325px;
   background-color: #0000003a;
+  color: white;
   font-size: 20px;
   font-weight: 500;
+  border-radius: 8px;
   display: grid;
   place-items: center;
   opacity: 0;
